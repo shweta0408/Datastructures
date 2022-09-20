@@ -108,3 +108,29 @@ const {
   fri: { open: o, close: c },
 } = openingHours;
 console.log(o, c);
+
+//The Spread Officer
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+
+console.log(...newArr);
+console.log(1, 2, 7, 8, 9);
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+//Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+let ezp = 'shweta is a bad girl';
+let output = ezp.split(' ');
+console.log(output);
+
+let result = output.map(e => e.split('').reverse().join('')); //.reverse().join(''));
+console.log(result.join(' '));
+
+//console.log(result.join(' '));
