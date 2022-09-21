@@ -134,3 +134,10 @@ let result = output.map(e => e.split('').reverse().join('')); //.reverse().join(
 console.log(result.join(' '));
 
 //console.log(result.join(' '));
+
+let testData = 'I am very humble';
+let testOutput = ezp.split(' ');
+console.log(output);
+
+let resultNew = output.map(e => e.split('').reverse().join('')); //.reverse().join(''));
+console.log(result.join(' '));
