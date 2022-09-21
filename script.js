@@ -126,7 +126,7 @@ console.log(newMenu);
 //Copy array
 const mainMenuCopy = [...restaurant.mainMenu];
 
-let ezp = 'shweta is a bad girl';
+let ezp = 'shweta is a good girl';
 let output = ezp.split(' ');
 console.log(output);
 
