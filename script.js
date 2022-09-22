@@ -67,6 +67,11 @@ const restaurant = {
       ${address} by ${time}`
     );
   },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
 };
 
 restaurant.orderDelivery({
@@ -141,3 +146,27 @@ console.log(output);
 
 let resultNew = output.map(e => e.split('').reverse().join('')); //.reverse().join(''));
 console.log(result.join(' '));
+
+//iterables: arrays, strings, maps, sets, NOT objects
+const str = 'shweta';
+const letters = [...str, '', 'S.'];
+console.log(letters);
+console.log(...str);
+
+// const ingredients = [
+//   prompt("Let's make pasta!Ingredient 1?"),
+//   [prompt("Let's make pasta!Ingredient 2?")],
+//   [prompt("Let's make pasta!Ingredient 3?")],
+// ];
+// console.log(ingredients);
+// restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+// restaurant.orderPasta(...ingredients);
+
+//Objects
+const newRestaurant = { ...restaurant, founder: 'Garry' };
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy.name);
+console.log(restaurantCopy);
