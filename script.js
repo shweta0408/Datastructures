@@ -170,3 +170,20 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'Ristorante Roma';
 console.log(restaurantCopy.name);
 console.log(restaurantCopy);
+
+//spread operator on RIGHT side of assignment operator(=)
+const arry = [1, 2, ...[3, 4]];
+
+//rest operator on LEFT side of assignment operator(=)
+const [n, m, ...others] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(n, m, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+//Objects
+const { sat, ...weekDays } = restaurant.openingHours;
+console.log(weekDays);
