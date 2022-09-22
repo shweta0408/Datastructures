@@ -208,3 +208,38 @@ add(...x);
 
 restaurant.orderPizza('mushroom', 'onions,', 'olives', 'spinach');
 restaurant.orderPizza('mushrooms');
+
+//Short-Circuiting
+//use any datatype, return any datatype, and do short circuiting
+console.log(3 || 'nini');
+//if  the fist value is truthy then second will not be evaluated.
+
+console.log('' || 'Nini');
+console.log(true || 0);
+console.log(undefined || null);
+console.log(typeof null); //object but it's a bug
+
+console.log(undefined || 0 || '' || 'hello' || 23 || null);
+
+//and operator returns falsy value if any one is false, but  returns true only when all the values are true
+console.log(0 && 'nini');
+console.log('Hello' && 23 && null && 'jonas');
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushroom', 'spinach');
+}
+
+restaurant.orderPizza &&
+  restaurant.orderPizza('mushroom', 'spinach', 'chilly', 'chesse');
+
+//Nullish Coalescing, nullish value are null, undefined
+
+restaurant.numGuests = 0;
+//const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+//console.log(guest1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
