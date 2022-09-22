@@ -72,6 +72,10 @@ const restaurant = {
       `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
     );
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient, otherIngredients);
+  },
 };
 
 restaurant.orderDelivery({
@@ -114,6 +118,7 @@ const {
 } = openingHours;
 console.log(o, c);
 
+//Destructuring
 //The Spread Officer
 const arr = [7, 8, 9];
 const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
@@ -187,3 +192,19 @@ console.log(pizza, risotto, otherFood);
 //Objects
 const { sat, ...weekDays } = restaurant.openingHours;
 console.log(weekDays);
+
+//functions
+const add = function (...numbers) {
+  let ourSum = 0;
+  for (let i = 0; i < numbers.length; i++) ourSum += numbers[i];
+  console.log(ourSum);
+};
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 4, 9);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza('mushroom', 'onions,', 'olives', 'spinach');
+restaurant.orderPizza('mushrooms');
