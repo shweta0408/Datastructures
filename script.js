@@ -82,6 +82,19 @@ for (const item of menu.entries()) {
 if (restaurant.openhours && restaurant.openhours.mon)
   console.log(restaurant.openhours.mon.open);
 
+//console.log(restaurant.openhours.mon.open);
+console.log(restaurant.openhours.mon?.open);
+console.log(restaurant.openhours?.mon?.open);
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+for (const day of days) {
+  const open = restaurant.openhours[day]?.open ?? 'çlosed';
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+//Methods
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+
 /*
 restaurant.orderDelivery({
   time: '22:30',
