@@ -1,5 +1,21 @@
 'use strict';
-/*
+
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const openhours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekdays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
 // Data needed for a later exercise
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
@@ -11,64 +27,41 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  openhours,
 
-  
-  const arr = [2, 3, 4];
-  const a = arr[0];
-  const b = arr[0];
-  const c = arr[0];
-  
-  const [x, y, z] = arr;
-  console.log(x, y, z);
-  console.log(arr);
-  
-  let [main, , secondary] = restaurant.categories;
-  console.log(main, secondary);
-  
-  [main, secondary] = [secondary, main];
-  console.log(main, secondary);
-  const [starter, mainCourse] = restaurant.order(2, 0);
-  console.log(starter, mainCourse);
-  */
-// const temp = main;
-// main = secondary;
-// secondary = temp;
-// console.log(main, secondary);
+  //const arr = [2, 3, 4];
+  // const a = arr[0];
+  // const b = arr[0];
+  // const c = arr[0];
 
-//;
-/*
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
+  // const [x, y, z] = arr;
+  // console.log(x, y, z);
+  // console.log(arr);
+  // let [main, , secondary] = restaurant.categories;
+  // console.log(main, secondary);
 
-  order: function (starterIndex, mainIndex) {
+  // [main, secondary] = [secondary, main];
+  // console.log(main, secondary);
+  // const [starter, mainCourse] = restaurant.order(2, 0);
+  // console.log(starter, mainCourse);
+
+  // const temp = main;
+  // main = secondary;
+  // secondary = temp;
+  // console.log(main, secondary);
+
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery: function ({
-    starterIndex = 1,
-    mainIndex = 0,
-    time = '20:20',
-    address,
-  }) {
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:20', address }) {
     console.log(
       `Order received : ${this.starterMenu[starterIndex]} and 
       ${this.mainMenu[mainIndex]}will be delivered to 
       ${address} by ${time}`
     );
   },
-  orderPasta: function (ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(
       `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
     );
@@ -79,6 +72,17 @@ const restaurant = {
   },
 };
 
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+
+for (const item of menu.entries()) {
+  console.log(item);
+}
+if (restaurant.openhours && restaurant.openhours.mon)
+  console.log(restaurant.openhours.mon.open);
+
+/*
 restaurant.orderDelivery({
   time: '22:30',
   address: 'Mint Park 32',
@@ -102,8 +106,8 @@ const {
 console.log(restaurantName, hours, tags);
 
 //Default values
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
+//const { menu = [], starterMenu: starters = [] } = restaurant;
+//console.log(menu, starters);
 
 //Mutating variables
 let a = 111;
@@ -116,7 +120,7 @@ console.log(a, b);
 //nested objects
 const {
   fri: { open: o, close: c },
-} = openingHours;
+} = openhours;
 console.log(o, c);
 
 //Destructuring
@@ -273,42 +277,4 @@ rest1.owner &&= '<ANONYMOUS>';
 rest2.owner &&= '<Anonymous>';
 
 console.log(rest1, rest2);
-
-
 */
-
-//coding challenge
-
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrusia Dortmund',
-  players: [
-    [
-      'Never',
-      'Pavard',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretza',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-
-    [
-      'Burki',
-      'schulz',
-      'Hummels',
-      'Akanji',
-      'hakimi',
-      'Weigl',
-      'witsel',
-      'Hazard',
-      'Brandt',
-    ],
-  ],
-};
-
-const playerFinal = ['thiago', 'Coutinho', 'Perisic', ...game.team1.players];
-console.log(playerFinal);
