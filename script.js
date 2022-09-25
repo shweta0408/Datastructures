@@ -95,6 +95,8 @@ for (const day of days) {
 //Methods
 console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
 
+//Arrays
+const users = [{ name: 'Shweta', email: 'shmis2004', age: '18' }];
 /*
 restaurant.orderDelivery({
   time: '22:30',
